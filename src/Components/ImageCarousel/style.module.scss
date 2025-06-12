@@ -1,0 +1,38 @@
+.slick-slide img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+.slickPrev,
+.slickNext {
+    display: none !important;
+    width: 30px;
+    height: 30px;
+    background-color: #ffffff;
+    border-radius: 50%;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    z-index: 1;
+}
+
+.slickPrev {
+    left: 20px;
+}
+
+.slickNext {
+    right: 20px;
+}
+
+.image {
+    margin: 0 auto;
+    width: 80%;
+}
+
+.SliderMain {
+    padding: 1% 3%;
+}

@@ -1,0 +1,104 @@
+.MainContainer {
+  background-color: #0d1429;
+  padding: 10% 10% 20px 10%;
+  @media (max-width: 768px) {
+    padding: 25% 5% 20px 5%;
+  }
+}
+
+.DateRow {
+  margin-bottom: 2em;
+}
+
+.DateBox {
+  background-color: #1e253c;
+  padding: 0.6em 1.2em;
+  border-radius: 8px;
+  color: #ffffff;
+  font-weight: 600;
+  font-size: 1.3em;
+  text-align: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+}
+
+.IntroText {
+  color: #ffffff;
+  font-size: 1.5em;
+  font-weight: 500;
+  text-align: justify;
+  line-height: 200%;
+  margin-bottom: 2em;
+  @media (max-width: 768px) {
+    font-size: 1.2em;
+  }
+}
+
+.CollapseBox {
+  background-color: transparent;
+
+  .ant-collapse-item {
+    border: none;
+    margin-bottom: 1em;
+    border-radius: 12px;
+    overflow: hidden;
+    background-color: #1b223a;
+    box-shadow: 0 4px 16px rgba(255, 255, 255, 0.05);
+  }
+
+  .ant-collapse-header {
+    background-color: transparent !important;
+    color: #ffffff !important;
+    font-size: 1.4em;
+    font-weight: 600;
+    padding-left: 1em !important;
+  }
+
+  .ant-collapse-content {
+    background-color: #1b223a !important;
+  }
+
+  .ant-collapse-arrow svg {
+    color: #ffffff !important;
+  }
+}
+
+.PanelHeader {
+  color: #ffffff !important;
+  font-size: 1.4em;
+  font-weight: 600;
+}
+
+.PanelContent {
+  color: #ffffff;
+  font-size: 1.2em;
+  line-height: 180%;
+  padding-left: 2em;
+}
+
+.MainRow {
+  margin-top: 2em;
+}
+
+.MainTitleText {
+  font-size: 2em;
+  font-weight: 600;
+  color: #ffffff;
+  text-align: center;
+  margin-bottom: 1em;
+}
+
+.MapWrapper {
+  border-radius: 12px;
+  overflow: hidden;
+  margin-top: 1em;
+}
+
+.MainItalicFont {
+  font-style: italic;
+  color: #ffffff;
+  font-size: 1.5em;
+  font-weight: 500;
+  @media (max-width: 768px) {
+    font-size: 1.2em;
+  }
+}

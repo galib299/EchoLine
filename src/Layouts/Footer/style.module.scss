@@ -1,0 +1,79 @@
+.FooterRow {
+  background: #0d1429;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  text-align: left;
+
+  @media (max-width: 768px) {
+    align-items: flex-start; 
+  }
+}
+
+.Footer {
+  padding: 50px 8% 90px 8%;
+  background: #0d1429; 
+  color: white;
+  text-align: left;
+
+  @media (max-width: 768px) {
+    padding: 20px 5%;
+  }
+}
+
+.ConnectWithUsTitle {
+  justify-content: end;
+  padding-right: 10px;
+}
+
+
+.ConnectWithUsText {
+  font-size: 1em !important;
+}
+
+.FooterText {
+  color: white;
+  font-size: 1.2em;
+  margin-top: 10px;
+  display: inline-block; // Ensure inline alignment
+}
+
+.FooterTextColumn {
+  text-align: "right";
+  padding-right: "10px";
+  @media (min-width: 769px) {
+    text-align: "left";
+  }
+}
+
+.FooterTitle {
+  font-size: 1.5em;
+  font-weight: 600;
+  color: white !important;
+  &.centered {
+    text-align: center;
+    display: block;
+    width: 100%;
+    @media (max-width: 768px) {
+      text-align: left;
+    }
+  }
+  &.centeredLeft {
+    text-align: center;
+    display: block;
+    width: 70%;
+    @media (max-width: 768px) {
+      text-align: left;
+    }
+  }
+}
+
+.FooterRow > .ant-col {
+  width: 100%;
+  text-align: center;
+
+  @media (min-width: 769px) {
+    width: auto;
+    text-align: left;
+  }
+}

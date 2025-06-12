@@ -1,0 +1,53 @@
+.MainContainer {
+  background-color: "#ffffff";
+  padding: 15% 2% 20px 2%;
+  border-top: hsl(0, 0%, 100%) 1px solid;
+}
+
+.MainRow {
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.MainImageRow {
+  margin: 40px 0px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.MainRowTitle {
+  display: flex;
+  color: #ffffff !important;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  width: 100%;
+  font-size: 3em;
+  font-weight: 800;
+  margin: 5% 0px 1% 0px;
+  @media (max-width: 768px) {
+    font-size: 2em;
+    margin: 13% 0px 1% 0px;
+    border-bottom: #ffffff solid 0.5px;
+  }
+}
+
+.MainRowText {
+  display: flex;
+  color: #ffffff;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  width: 100%;
+  line-height: 200%;
+  font-size: 1.5em;
+  font-weight: 500;
+  @media (max-width: 768px) {
+    font-size: 1.2em;
+    text-align: justify;
+  }
+}
