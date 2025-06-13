@@ -15,7 +15,7 @@ function App() {
         <div style={{ height: "100vh", width: "100%", overflow: "hidden" }}>
           <video className={style.DiplomacyVideo} autoPlay loop muted playsInline>
             <source
-              src="https://s3.echolineglobal.org/Echo%20line%20(2).mp4"
+              src="https://s3.echolineglobal.org/Echo%20line.mp4"
               type="video/mp4"
             />
             Your browser does not support the video tag.

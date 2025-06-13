@@ -58,7 +58,7 @@ const Index = () => {
     },
     { header: "PUBLICATIONS", path: "/publications", disabled: true },
     {
-      header: "PARTNERSHIP",
+      header: "START YOUR CHAPTER",
       submenu: [
         {
           key: "member",
