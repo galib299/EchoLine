@@ -1,3 +1,4 @@
+import React, { useState } from "react";
 import style from "./style.module.scss";
 import {
   FacebookOutlined,
@@ -8,16 +9,79 @@ import {
   CopyrightOutlined,
   TikTokOutlined,
 } from "@ant-design/icons";
-import { Layout, Typography, Input, Button, Row, Col } from "antd";
+import { Layout, Typography, Input, Button, Row, Col, message } from "antd";
 import LinktreeOutlined from "../../Components/LinktreeIcon/index";
 import { SiTiktok } from "react-icons/si";
 import { useLocation } from "react-router-dom";
+
 const { TextArea } = Input;
 const { Title, Text } = Typography;
 const { Footer } = Layout;
 
 const Index = () => {
   const location = useLocation();
+  
+  // State for form fields
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    message: ''
+  });
+
+  // Handle input changes
+  const handleInputChange = (field, value) => {
+    setFormData(prev => ({
+      ...prev,
+      [field]: value
+    }));
+  };
+
+  // Handle form submission
+  const handleSendEmail = () => {
+    // Basic validation
+    if (!formData.name.trim()) {
+      message.error('Please enter your name');
+      return;
+    }
+    if (!formData.email.trim()) {
+      message.error('Please enter your email');
+      return;
+    }
+    if (!formData.message.trim()) {
+      message.error('Please enter your message');
+      return;
+    }
+
+    // Email validation (basic)
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(formData.email)) {
+      message.error('Please enter a valid email address');
+      return;
+    }
+
+    // Create mailto URL with form data
+    const subject = encodeURIComponent(`Message from ${formData.name} - Secretary-General Contact`);
+    const body = encodeURIComponent(
+      `Name: ${formData.name}\n` +
+      `Email: ${formData.email}\n\n` +
+      `Message:\n${formData.message}`
+    );
+    
+    const mailtoUrl = `mailto:galibabdullayev00@icloud.com?subject=${subject}&body=${body}`;
+    
+    // Open email client
+    window.location.href = mailtoUrl;
+    
+    // Clear form after sending
+    setFormData({
+      name: '',
+      email: '',
+      message: ''
+    });
+    
+    message.success('Email client opened! Please send the email from your email application.');
+  };
+
   return (
     <Footer
       className={style.Footer}
@@ -37,12 +101,24 @@ const Index = () => {
             <Text className={`${style.FooterTitle} ${style.centered}`}>
               Contact Secretary-General
             </Text>
-            <Input style={{ borderRadius: "0px", margin: "10px 0" }} placeholder="Name Surname" />
-            <Input placeholder="Email" style={{ borderRadius: "0px", margin: "10px 0" }} />
+            <Input 
+              style={{ borderRadius: "0px", margin: "10px 0" }} 
+              placeholder="Name Surname"
+              value={formData.name}
+              onChange={(e) => handleInputChange('name', e.target.value)}
+            />
+            <Input 
+              placeholder="Email" 
+              style={{ borderRadius: "0px", margin: "10px 0" }}
+              value={formData.email}
+              onChange={(e) => handleInputChange('email', e.target.value)}
+            />
             <TextArea
               style={{ borderRadius: "0px", margin: "10px 0" }}
               rows={3}
               placeholder="Your Message"
+              value={formData.message}
+              onChange={(e) => handleInputChange('message', e.target.value)}
             />
             <Button
               style={{
@@ -53,6 +129,7 @@ const Index = () => {
                 width: "100%",
                 marginTop: "10px",
               }}
+              onClick={handleSendEmail}
             >
               Send
             </Button>
@@ -64,9 +141,6 @@ const Index = () => {
               Contact Us
             </Text>
           </Row>
-          {/* <Row>
-            <Text className={style.FooterText}>info@diplomacycommunity.org</Text>
-          </Row> */}
           <Row>
             <a href="mailto:echolineglobal@gmail.com" style={{ color: "white" }}>
               <Text className={style.FooterText}>echolineglobal@gmail.com</Text>
@@ -79,7 +153,6 @@ const Index = () => {
           </Row>
           <Row>
             <a
-
               target="_blank"
               rel="noopener noreferrer"
               style={{ color: "white" }}
@@ -155,7 +228,7 @@ const Index = () => {
             <Col xs={16} sm={16} md={16} lg={17}>
               <Text className={[style.FooterText, style.ConnectWithUsText]}>
                 <a
-                  href="www.tiktok.com/@echoline.global"
+                  href="https://www.tiktok.com/@echoline.global"
                   target="_blank"
                   rel="noopener noreferrer"
                   style={{ color: "white" }}
@@ -173,17 +246,14 @@ const Index = () => {
               lg={7}
               className={[style.FooterTextColumn, style.ConnectWithUsTitle]}
             >
-
             </Col>
             <Col xs={16} sm={16} md={16} lg={17}>
               <Text className={[style.FooterText, style.ConnectWithUsText]}>
                 <a
-
                   target="_blank"
                   rel="noopener noreferrer"
                   style={{ color: "white" }}
                 >
-
                 </a>
               </Text>
             </Col>
@@ -214,8 +284,7 @@ const Index = () => {
                 rel="noopener noreferrer"
                 style={{ color: "white" }}
               >
-            <InstagramOutlined style={{ fontSize: "24px" }} />
-                
+                <InstagramOutlined style={{ fontSize: "24px" }} />
               </a>
             </Col>
             <Col style={{ padding: "0px" }} xs={4}>
@@ -225,9 +294,7 @@ const Index = () => {
                 rel="noopener noreferrer"
                 style={{ color: "white" }}
               >
-
-            <LinktreeOutlined style={{ fontSize: "24px" }} />
-
+                <LinktreeOutlined style={{ fontSize: "24px" }} />
               </a>
             </Col>
             <Col style={{ padding: "0px" }} xs={4}>
@@ -238,7 +305,6 @@ const Index = () => {
                 style={{ color: "white" }}
               >
                 <SiTiktok style={{ fontSize: "24px" }} />
-
               </a>
             </Col>
             <Col style={{ padding: "0px" }} xs={4}>
@@ -248,8 +314,7 @@ const Index = () => {
                 rel="noopener noreferrer"
                 style={{ color: "white" }}
               >
-                
-            <YoutubeOutlined style={{ fontSize: "24px" }} />
+                <YoutubeOutlined style={{ fontSize: "24px" }} />
               </a>
             </Col>
             <Col style={{ padding: "0px" }} xs={4}>

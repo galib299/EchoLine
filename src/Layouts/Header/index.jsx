@@ -74,7 +74,7 @@ const Index = () => {
         },
         {
           key: "mediapartner",
-          label: "Become a Media Partner",
+          label: "Become a Partner",
           path: "mailto:echolineglobal@gmail.com",
           external: true,
         },

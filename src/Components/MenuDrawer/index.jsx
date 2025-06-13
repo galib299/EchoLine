@@ -30,6 +30,17 @@ const MenuDrawer = ({ open, openDrawer, items }) => {
     return header;
   };
 
+  const handleMenuItemClick = (path) => {
+    if (path.startsWith("http") || path.startsWith("mailto:")) {
+      // Handle external links and mailto links
+      window.open(path, "_blank");
+    } else {
+      // Handle internal navigation
+      navigate(path);
+    }
+    handleDrawerClose();
+  };
+
   return (
     <Drawer
       placement="bottom"
@@ -76,12 +87,7 @@ const MenuDrawer = ({ open, openDrawer, items }) => {
                     key={key}
                     onClick={() => {
                       if (disabled) return;
-                      if (path.startsWith("http")) {
-                        window.open(path, "_blank");
-                      } else {
-                        navigate(path);
-                      }
-                      handleDrawerClose();
+                      handleMenuItemClick(path);
                     }}
                     disabled={disabled}
                   >
